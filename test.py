@@ -1,5 +1,9 @@
-print("Hello World")
-print("sta ima")
+import pandas as pd
 
-for i in range(5):
-    print(i)
+df = pd.read_csv("/home/slaven92/Downloads/avocado.csv")
+
+df["AveragePrice"].head(5)
+
+albany_df = df[df["region"] == "Albany"]
+
+albany_df.tail()
