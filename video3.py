@@ -15,3 +15,9 @@ for name, group in df.groupby('State'):
         act_min_wage = group.set_index('Year')[['Low.2018']].rename(columns={'Low.2018':name})
     else:
         act_min_wage = act_min_wage.join(group.set_index('Year')[['Low.2018']].rename(columns={'Low.2018':name}))
+
+act_min_wage.head()
+
+# %%
+import numpy as np
+act_min_wage.replace(0, np.NaN).dropna(axis=1).corr().head()
